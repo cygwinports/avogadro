@@ -1,0 +1,18 @@
+inherit python qt4-cmake
+
+DESCRIPTION="Molecular editor and modeling system"
+HOMEPAGE="http://avogadro.openmolecules.net/"
+SRC_URI="mirror://sourceforge/avogadro/${P}.tar.bz2"
+PATCH_URI="1.0.0-lib-install.patch
+           1.0.0-pluginmanager.patch"
+
+PKG_NAMES="${PN} lib${PN}1 lib${PN}-devel python-${PN}"
+avogadro_CONTENTS="--exclude=libavogadro* usr/bin/*.exe usr/share/"
+libavogadro1_CONTENTS="--exclude=*cmake usr/bin/*-1.dll usr/lib/avogadro/
+                       usr/share/avogadro/i18n/libavogadro*
+                       usr/share/libavogadro/shaders/"
+libavogadro_devel_CONTENTS="usr/include/ usr/lib/avogadro/*.cmake
+                            usr/lib/avogadro/*/*cmake usr/lib/lib*"
+python_avogadro_CONTENTS="${PYTHON_SITELIB#/} usr/share/libavogadro/*Scripts/"
+
+CYGCMAKE_ARGS="-DENABLE_GLSL=ON -DHAVE_GCC_VISIBILITY=OFF"

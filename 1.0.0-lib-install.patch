@@ -1,0 +1,13 @@
+--- origsrc/avogadro-1.0.0/libavogadro/src/CMakeLists.txt	2009-10-23 14:06:32.000000000 -0500
++++ src/avogadro-1.0.0/libavogadro/src/CMakeLists.txt	2010-01-14 02:31:16.543360900 -0600
+@@ -154,7 +154,9 @@ set_target_properties(avogadro
+   PROPERTIES VERSION ${Avogadro_VERSION_FULL} SOVERSION 1 )
+ target_link_libraries(avogadro ${AVO_LINK_LIBRARIES})
+ 
+-install(TARGETS avogadro DESTINATION ${LIB_INSTALL_DIR})
++install(TARGETS avogadro LIBRARY DESTINATION ${LIB_INSTALL_DIR}
++                         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
++                         ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
+ install(FILES ${libavogadro_HDRS}
+   DESTINATION "${INCLUDE_INSTALL_DIR}/avogadro")
+ install(FILES ${libavogadro_QM} DESTINATION ${I18N_INSTALL_DIR})
