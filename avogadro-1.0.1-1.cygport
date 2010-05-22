@@ -7,7 +7,7 @@ PATCH_URI="1.0.0-lib-install.patch
            1.0.0-pluginmanager.patch"
 
 PKG_NAMES="${PN} lib${PN}1 lib${PN}-devel python-${PN}"
-avogadro_CONTENTS="--exclude=libavogadro* usr/bin/*.exe usr/share/"
+avogadro_CONTENTS="--exclude=libavogadro* usr/bin/avo* usr/share/"
 libavogadro1_CONTENTS="--exclude=*cmake usr/bin/*-1.dll usr/lib/avogadro/
                        usr/share/avogadro/i18n/libavogadro*
                        usr/share/libavogadro/shaders/"
