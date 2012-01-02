@@ -1,5 +1,5 @@
 category: Science
-requires: libavogadro1 libgcc1 libGL1 libopenbabel3 libQtCore4 libQtGui4 libQtOpenGL4 libstdc++6 libX11_6
+requires: libavogadro1 libgcc1 libGL1 libopenbabel4 libQtCore4 libQtGui4 libQtOpenGL4 libstdc++6 libX11_6
 sdesc: "Molecular editor and modeling system"
 ldesc: "Avogadro is an advanced molecular editor designed for 
 cross-platform use in computational chemistry, molecular modeling, 
