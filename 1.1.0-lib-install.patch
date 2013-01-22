@@ -1,0 +1,24 @@
+--- origsrc/avogadro-1.1.0/libavogadro/src/CMakeLists.txt	2012-09-03 12:07:01.000000000 -0500
++++ src/avogadro-1.1.0/libavogadro/src/CMakeLists.txt	2013-01-21 23:46:03.000000000 -0600
+@@ -232,7 +232,10 @@ set_target_properties(avogadro PROPERTIE
+   LABELS avogadro)
+ install(FILES ${libavogadro_HDRS}
+   DESTINATION "${INCLUDE_INSTALL_DIR}/avogadro")
+-install(TARGETS avogadro DESTINATION ${LIB_INSTALL_DIR} EXPORT AvogadroTargets)
++install(TARGETS avogadro EXPORT AvogadroTargets
++                         LIBRARY DESTINATION ${LIB_INSTALL_DIR}
++                         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
++                         ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
+ 
+ # Add the engiens, tools and extensions directories
+ add_subdirectory(engines)
+--- origsrc/avogadro-1.1.0/libavogadro/src/extensions/surfaces/openqube/CMakeLists.txt	2012-09-03 12:07:00.000000000 -0500
++++ src/avogadro-1.1.0/libavogadro/src/extensions/surfaces/openqube/CMakeLists.txt	2013-01-22 01:09:34.424580500 -0600
+@@ -46,4 +46,6 @@ set_target_properties(OpenQube PROPERTIE
+ 
+ target_link_libraries(OpenQube ${QT_QTCORE_LIBRARY})
+ 
+-install(TARGETS OpenQube DESTINATION ${LIB_INSTALL_DIR})
++install(TARGETS OpenQube LIBRARY DESTINATION ${LIB_INSTALL_DIR}
++                         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
++                         ARCHIVE DESTINATION ${LIB_INSTALL_DIR})

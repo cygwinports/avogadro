@@ -1,8 +1,0 @@
-category: Science
-requires: eigen2 libboost-devel libGLEW-devel libQtCore4-devel libQtGui4-devel libQtOpenGL4-devel
-external-source: avogadro
-sdesc: "Molecular editor and modeling system (library development)"
-ldesc: "Avogadro is an advanced molecular editor designed for 
-cross-platform use in computational chemistry, molecular modeling, 
-bioinformatics, materials science, and related areas. It offers flexible 
-rendering and a powerful plugin architecture."
