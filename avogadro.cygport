@@ -2,8 +2,8 @@ inherit python qt4-cmake
 
 NAME="avogadro"
 VERSION=1.1.0
-RELEASE=3
-CATEGORY="Science"
+RELEASE=4
+CATEGORY="Libs"
 SUMMARY="Molecular editor and modeling system"
 DESCRIPTION="Avogadro is an advanced molecular editor designed for cross-
 platform use in computational chemistry, molecular modeling, bioinformatics,
@@ -14,6 +14,7 @@ SRC_URI="mirror://sourceforge/avogadro/avogadro-${VERSION}.tar.bz2"
 PATCH_URI="1.1.0-lib-install.patch  1.1.0-ansi.patch"
 
 PKG_NAMES="${NAME} lib${NAME}1 lib${NAME}-common lib${NAME}-devel python-${NAME}"
+avogadro_CATEGORY="Science"
 avogadro_CONTENTS="--exclude=libavogadro* --exclude=qt4 etc/postinstall/ usr/bin/avo* usr/share/"
 libavogadro1_SUMMARY="${SUMMARY} (runtime library)"
 libavogadro1_REQUIRES="libavogadro-common"
