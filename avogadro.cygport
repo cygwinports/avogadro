@@ -30,7 +30,7 @@ libavogadro1_CONTENTS="--exclude=*cmake usr/bin/cygavogadro-1.dll usr/bin/cygavo
 libavogadro_common_SUMMARY="${SUMMARY} (data)"
 libavogadro_common_CONTENTS="usr/share/avogadro/i18n/libavogadro* usr/share/libavogadro/shaders/"
 libavogadro_devel_SUMMARY="${SUMMARY} (library development)"
-libavogadro_devel_REQUIRES="eigen2 libboost-devel libGLEW-devel libQtCore4-devel libQtGui4-devel libQtOpenGL4-devel"
+libavogadro_devel_REQUIRES="libboost-devel libGLEW-devel libQtCore4-devel libQtGui4-devel libQtOpenGL4-devel"
 libavogadro_devel_CONTENTS="usr/include/ usr/lib/avogadro/*.cmake usr/lib/avogadro/*/*cmake
                             usr/lib/lib* usr/lib/pkgconfig/ usr/share/qt4/"
 python_avogadro_CATEGORY="Python"
