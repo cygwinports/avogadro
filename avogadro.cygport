@@ -1,41 +1,71 @@
-inherit python qt4-cmake
+inherit python2 qt4-cmake
 
 NAME="avogadro"
-VERSION=1.1.1
-RELEASE=3
+VERSION=1.2.0
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Molecular editor and modeling system"
 DESCRIPTION="Avogadro is an advanced molecular editor designed for cross-
 platform use in computational chemistry, molecular modeling, bioinformatics,
 materials science, and related areas. It offers flexible rendering and a
 powerful plugin architecture."
-HOMEPAGE="http://avogadro.openmolecules.net/"
-SRC_URI="mirror://sourceforge/avogadro/avogadro-${VERSION}.tar.bz2"
+HOMEPAGE="http://avogadro.cc/"
+SRC_URI="mirror://sourceforge/avogadro/avogadro-${VERSION}.tar.gz"
 PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/avogadro.git/plain/avogadro-1.1.1-mkspecs-dir.patch
 	http://pkgs.fedoraproject.org/cgit/avogadro.git/plain/avogadro-1.1.1-no-strip.patch
 	http://pkgs.fedoraproject.org/cgit/avogadro.git/plain/avogadro-1.1.1-pkgconfig_eigen.patch
 	http://pkgs.fedoraproject.org/cgit/avogadro.git/plain/avogadro-cmake-3.2.patch
-	http://pkgs.fedoraproject.org/cgit/avogadro.git/plain/avogadro-1.1.1-eigen3.patch
+	http://pkgs.fedoraproject.org/cgit/avogadro.git/plain/avogadro-1.1.1-Q_MOC_RUN.patch
 	http://pkgs.fedoraproject.org/cgit/avogadro.git/plain/avogadro-1.1.1-python_openbabel.patch
+	http://pkgs.fedoraproject.org/cgit/avogadro.git/plain/avogadro-1.1.1-qt.patch
 	1.1.0-lib-install.patch
 	1.1.0-ansi.patch
 "
 
-PKG_NAMES="${NAME} lib${NAME}1 lib${NAME}-common lib${NAME}-devel python-${NAME}"
+PKG_NAMES="${NAME} lib${NAME}1 lib${NAME}-common lib${NAME}-devel python2-${NAME}"
 avogadro_CATEGORY="Science"
-avogadro_CONTENTS="--exclude=libavogadro* --exclude=qt4 usr/bin/avo* usr/share/"
+avogadro_CONTENTS="
+	--exclude=libavogadro*
+	usr/bin/avo*
+	usr/bin/qube.exe
+	usr/share/applications/avogadro.desktop
+	usr/share/avogadro/
+	usr/share/doc/${NAME}
+	usr/share/man/man1/avo*
+	usr/share/pixmaps/avogadro-icon.png
+"
 libavogadro1_SUMMARY="${SUMMARY} (runtime library)"
 libavogadro1_REQUIRES="libavogadro-common"
-libavogadro1_CONTENTS="--exclude=*cmake usr/bin/cygavogadro-1.dll usr/bin/cygavogadro_*.dll usr/lib/avogadro/"
+libavogadro1_CONTENTS="
+	--exclude=*cmake
+	usr/bin/cygavogadro-1.dll
+	usr/bin/cygavogadro_*.dll
+	usr/lib/avogadro/
+"
 libavogadro_common_SUMMARY="${SUMMARY} (data)"
-libavogadro_common_CONTENTS="usr/share/avogadro/i18n/libavogadro* usr/share/libavogadro/shaders/"
+libavogadro_common_CONTENTS="
+	usr/share/avogadro/i18n/libavogadro*
+	usr/share/libavogadro/shaders/
+"
 libavogadro_devel_SUMMARY="${SUMMARY} (library development)"
 libavogadro_devel_REQUIRES="libboost-devel libGLEW-devel libQtCore4-devel libQtGui4-devel libQtOpenGL4-devel"
-libavogadro_devel_CONTENTS="usr/include/ usr/lib/avogadro/*.cmake usr/lib/avogadro/*/*cmake
-                            usr/lib/lib* usr/lib/pkgconfig/ usr/share/qt4/"
-python_avogadro_CATEGORY="Python"
-python_avogadro_SUMMARY="${SUMMARY} (Python bindings)"
-python_avogadro_CONTENTS="${PYTHON_SITELIB#/} usr/share/libavogadro/*Scripts/"
+libavogadro_devel_CONTENTS="
+	usr/include/avogadro/
+	usr/include/libmsym/
+	usr/lib/avogadro/*.cmake
+	usr/lib/avogadro/*/*cmake
+	usr/lib/cmake/libmsym/
+	usr/lib/lib*
+	usr/lib/pkgconfig/
+	usr/share/qt4/
+"
+python2_avogadro_CATEGORY="Python"
+python2_avogadro_SUMMARY="${SUMMARY} (Python bindings)"
+python2_avogadro_OBSOLETES="python-avogadro"
+python2_avogadro_CONTENTS="
+	${PYTHON2_SITELIB#/}
+	usr/share/libavogadro/*Scripts/
+"
 
 CYGCMAKE_ARGS="-DENABLE_GLSL=ON -DHAVE_GCC_VISIBILITY=OFF"
