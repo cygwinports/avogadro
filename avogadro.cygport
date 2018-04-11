@@ -2,7 +2,7 @@ inherit python2 qt4-cmake
 
 NAME="avogadro"
 VERSION=1.2.0
-RELEASE=2
+RELEASE=4
 CATEGORY="Libs"
 SUMMARY="Molecular editor and modeling system"
 DESCRIPTION="Avogadro is an advanced molecular editor designed for cross-
